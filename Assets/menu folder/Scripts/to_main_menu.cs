@@ -8,5 +8,6 @@ public class to_main_menu : MonoBehaviour
     public void LoadByName(string sceneName)
     {
         SceneManager.LoadScene("Main_menu");
+        
     }
 }
