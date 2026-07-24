@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 11b8400bdaef4a440b702b6cf8720d48
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - wordListText: {instanceID: 0}
+  - cellPrefab: {instanceID: 0}
+  - boardParent: {instanceID: 0}
+  - titleText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
