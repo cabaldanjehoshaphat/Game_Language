@@ -207,10 +207,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 44.75
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -75.66784, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -342,10 +342,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
+  m_fontSize: 72
   m_fontSizeBase: 16
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -71.5555, w: -272.45673}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -779,26 +779,16 @@ MonoBehaviour:
   wordListText: {fileID: 231565813}
   width: 12
   height: 12
-  puzzleTitle: Bahay Kubo
+  puzzleTitle: IBA'T IBANG HUGIS
   words:
-  - SINGKAMAS
-  - TALONG
-  - SIGARILYAS
-  - MANI
-  - SITAW
-  - BATAW
-  - PATANI
-  - KUNDOL
-  - PATOLA
-  - UPOT
-  - KALABASA
-  - LABANOS
-  - MUSTASA
-  - SIBUYAS
-  - KAMATIS
-  - BAWANG
-  - LUYA
-  - LINGA
+  - TATSULOK
+  - PARIHABA
+  - BILOHABA
+  - DYAMANTE
+  - PARISUKAT
+  - BILOG
+  - PASO
+  - BITUIN
   cellPrefab: {fileID: 6662855028905082683, guid: b9c8d23bd02e1694e95dfd385a0a2acd, type: 3}
   boardParent: {fileID: 1268082285}
   titleText: {fileID: 217627629}
@@ -941,7 +931,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 25, y: 25}
+  m_CellSize: {x: 22, y: 22}
   m_Spacing: {x: 3, y: 3}
   m_Constraint: 1
   m_ConstraintCount: 2

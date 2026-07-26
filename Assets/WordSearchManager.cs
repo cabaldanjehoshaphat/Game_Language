@@ -24,6 +24,8 @@ public class WordSearchManager : MonoBehaviour
     public string puzzleTitle = "Animals";
 
     public string[] words;
+    private HashSet<string> foundWords = new HashSet<string>();
+
 
     [Header("References")]
     public GameObject cellPrefab;
@@ -54,21 +56,7 @@ public class WordSearchManager : MonoBehaviour
     }
     void Start()
     {
-        titleText.text = puzzleTitle;
-
-        board = new char[height, width];
-
-        System.Array.Sort(words, (a, b) => b.Length.CompareTo(a.Length));
-
-        PlaceWords();
-
-        UpdateWordList();
-
-        FillRemaining();
-
-        CreateBoard();
-
-        //below are safety checks to make sure the error isn't vague
+        //the ifs below are safety checks to make sure the error isn't vague
 
         if (titleText == null)
     {
@@ -93,6 +81,19 @@ public class WordSearchManager : MonoBehaviour
         Debug.LogError("Board Parent is not assigned!");
         return;
     }
+        titleText.text = puzzleTitle;
+
+        board = new char[height, width];
+
+        System.Array.Sort(words, (a, b) => b.Length.CompareTo(a.Length));
+
+        PlaceWords();
+
+        UpdateWordList();
+
+        FillRemaining();
+
+        CreateBoard();
     }
 
     void Update()
@@ -108,8 +109,13 @@ public class WordSearchManager : MonoBehaviour
         wordListText.text = "";
 
         foreach (string word in words)
+        if (foundWords.Contains(word))
         {
-            wordListText.text += "• " + word + "\n";
+            wordListText.text += "<s>• " + word + "</s>\n";
+        }
+        else
+        {
+            wordListText.text += "○ " + word + "\n";
         }
     }
 
@@ -226,6 +232,24 @@ public class WordSearchManager : MonoBehaviour
 
     public void ContinueSelection(WordSearchCell cell)
     {
+
+        // this is for if the player wants to go backwards to UN-highlight a cell
+        if (selectedCells.Count >= 2 && cell == selectedCells[selectedCells.Count - 2])
+        {
+            WordSearchCell back = selectedCells[selectedCells.Count - 1];
+            back.LowLight();
+            selectedCells.RemoveAt(selectedCells.Count - 1);
+
+            //unlock direction if only one cell is highlighted
+            if (selectedCells.Count == 1)
+            {
+                directionLocked = false;
+                dragDirection = Vector2Int.zero;
+            }
+            return;
+        }
+
+
         if (selectedCells.Contains(cell))
             return;
 
@@ -272,9 +296,31 @@ public class WordSearchManager : MonoBehaviour
 
         Debug.Log(selectedWord);
 
+        bool found = false;
+
+        foreach (string word in words)
+        {
+            if (selectedWord.Equals(word, System.StringComparison.OrdinalIgnoreCase) && !foundWords.Contains(word))
+            {
+                found = true;
+                foundWords.Add(selectedWord);
+                UpdateWordList();
+
+                if (foundWords.Count == words.Length)
+                {
+                    Debug.Log("All words found!");
+                }
+
+                break;
+            }
+        }
+
         foreach (WordSearchCell cell in selectedCells)
         {
-            cell.LowLight();
+            if (found)
+                cell.MarkFound();
+            else     
+                cell.LowLight();
         }
 
         selectedCells.Clear();
